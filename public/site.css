@@ -1,0 +1,26 @@
+.wrapper{
+    margin: 15px 0px;
+}
+.inner{
+    height: 607px;
+    width:100%;
+    text-align: center;
+}
+.inner ul{
+    width: 82%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 26px;
+}
+.inner li{
+    margin: 0 15px;
+    padding: 15px 0;
+    list-style: none;
+}
+.inner li span{
+    color: green;
+    margin-left: 60px;
+}
+div.btn{
+    margin-top: 50px;
+}
