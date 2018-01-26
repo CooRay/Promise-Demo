@@ -93,6 +93,7 @@ function withAllFunctions() {
         $.each(values, function (i, value) {
             addValueToLisItem(withValArray[i], value);
         });
+        toggleButtons();
     });
 }
 
