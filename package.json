@@ -9,6 +9,7 @@
   "author": "Cory Carlson",
   "license": "MIT",
   "dependencies": {
+    "eslint": "^4.17.0",
     "express": "^4.16.2"
   }
 }
