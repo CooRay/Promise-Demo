@@ -42,16 +42,16 @@ function withoutFunctions(){
     var val1 = mywithoutPromiseFunction(1000, "One Second");
     addValueToLisItem(withoutValArray[0], val1);
     // Function 2
-    var val2 = mywithoutPromiseFunction(3000, "Three Seconds");
+    var val2 = mywithoutPromiseFunction(2000, "Two Seconds");
     addValueToLisItem(withoutValArray[1], val2);
     // Function 3
-    var val3 = mywithoutPromiseFunction(5000, "Five Seconds");
+    var val3 = mywithoutPromiseFunction(3000, "Three Seconds");
     addValueToLisItem(withoutValArray[2], val3);
     // Function 4
-    var val4 = mywithoutPromiseFunction(7000, "Seven Seconds");
+    var val4 = mywithoutPromiseFunction(4000, "Four Seconds");
     addValueToLisItem(withoutValArray[3], val4);
     // Function 5
-    var val5 = mywithoutPromiseFunction(9000, "Nine Seconds");
+    var val5 = mywithoutPromiseFunction(5000, "Five Seconds");
     addValueToLisItem(withoutValArray[4], val5);
     
 }
@@ -63,19 +63,19 @@ function withFunctions() {
         addValueToLisItem(withValArray[0], result);
     });
     // Function 2
-    myPromiseFunction(3000, 'Three Seconds').then((result) => {
+    myPromiseFunction(2000, 'Two Seconds').then((result) => {
         addValueToLisItem(withValArray[1], result);
     });
     // Function 3
-    myPromiseFunction(5000, 'Five Seconds').then((result) => {
+    myPromiseFunction(3000, 'Three Seconds').then((result) => {
         addValueToLisItem(withValArray[2], result);
     });
     // Function 4
-    myPromiseFunction(7000, 'Seven Seconds').then((result) => {
+    myPromiseFunction(4000, 'Four Seconds').then((result) => {
         addValueToLisItem(withValArray[3], result);
     });
     // Function 5
-    myPromiseFunction(9000, 'Nine Seconds').then((result) => {
+    myPromiseFunction(5000, 'Five Seconds').then((result) => {
         addValueToLisItem(withValArray[4], result);
         toggleButtons();
     });
@@ -85,10 +85,10 @@ function withAllFunctions() {
     let withValArray = $('.with li');
     Promise.all([
         myPromiseFunction(1000, "First All"),
-        myPromiseFunction(3000, "Second All"),
-        myPromiseFunction(5000, "Third All"),
-        myPromiseFunction(7000, "Fourth All"),
-        myPromiseFunction(9000, "Fifth All")
+        myPromiseFunction(2000, "Second All"),
+        myPromiseFunction(3000, "Third All"),
+        myPromiseFunction(4000, "Fourth All"),
+        myPromiseFunction(5000, "Fifth All")
     ]).then(values => {
         $.each(values, function (i, value) {
             addValueToLisItem(withValArray[i], value);
