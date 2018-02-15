@@ -24,3 +24,7 @@
 div.btn{
     margin-top: 50px;
 }
+.inner input{
+    width: 25%;
+    margin: 0 auto;
+}

@@ -15,6 +15,11 @@ $(document).ready(function () {
         clearResults(this);
         withAllFunctions();
     });
+    $('#race-btn').click(function() {
+        clearResults(this);
+        var secondsToWait = $('.inner input').val();
+        raceFunction(secondsToWait);
+    });
 });
 
 function toggleButtons() {
@@ -31,11 +36,12 @@ function toggleButtons() {
 
 function clearResults(element) {
     var items = $(element).siblings('ul').first().children('li');
+    console.log(items)
     $.each(items, function (i, value) {
         $(value).children('span').remove();
     });
 }
-function withoutFunctions(){
+function withoutFunctions() {
     let withoutValArray = $('.without li');
 
     // Function 1
@@ -53,7 +59,7 @@ function withoutFunctions(){
     // Function 5
     var val5 = mywithoutPromiseFunction(5000, "Five Seconds");
     addValueToLisItem(withoutValArray[4], val5);
-    
+
 }
 
 function withFunctions() {
@@ -100,9 +106,9 @@ function withAllFunctions() {
 function addValueToLisItem(listItem, value) {
     $(listItem).append('<span>' + value + '</span>');
 }
-function mywithoutPromiseFunction(timeout, retval){
+function mywithoutPromiseFunction(timeout, retval) {
     setTimeout(() => {
-        return retval;        
+        return retval;
     }, timeout);
 }
 function myPromiseFunction(timeout, retVal) {
@@ -110,5 +116,28 @@ function myPromiseFunction(timeout, retVal) {
         setTimeout(() => {
             resolve(retVal);
         }, timeout);
+    });
+}
+function raceFunction(secondsToWait) {
+    
+    var functionOnetimeout = secondsToWait * 1000;
+    var functionTwotimeout = 2000;
+
+    var f1 = new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            resolve(0);
+        }, functionOnetimeout);
+    });
+    var f2 = new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            resolve(1);
+        }, functionTwotimeout);
+    });
+    
+
+    let withValArray = $('.race li');
+    Promise.race([f1, f2])
+    .then((val)=> {
+        addValueToLisItem(withValArray[Number(val)], "Done");
     });
 }
