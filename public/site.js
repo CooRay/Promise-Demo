@@ -124,16 +124,11 @@ function raceFunction(secondsToWait) {
     var functionTwotimeout = 2000;
 
     var f1 = new Promise((resolve,reject)=>{
-        setTimeout(() => {
-            resolve(0);
-        }, functionOnetimeout);
+        setTimeout(resolve, functionOnetimeout, [0]);
     });
     var f2 = new Promise((resolve,reject)=>{
-        setTimeout(() => {
-            resolve(1);
-        }, functionTwotimeout);
-    });
-    
+        setTimeout(resolve, functionTwotimeout, [1]);
+    });    
 
     let withValArray = $('.race li');
     Promise.race([f1, f2])
