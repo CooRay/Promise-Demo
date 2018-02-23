@@ -1,6 +1,13 @@
 # Promises
  This is a simple page running on express demonstrating an examle of promises in javascript. 
- Three examples include not using promises, using individual promises, `using promise.race()` and then using `promise.all()`.
+ Five examples include:
+  ..* Not using promises
+  ..* Using individual promises 
+  ..* Using `promise.race()` 
+  ..* Using `promise.all()`
+  ..* Using async/await
+
+ ### All examples of functions are verbose with the intention of being easie to understand.
  
  ## Install
  Clone the repository then run `npm install`.

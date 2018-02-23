@@ -20,6 +20,11 @@ $(document).ready(function () {
         var secondsToWait = $('.inner input').val();
         raceFunction(secondsToWait);
     });
+    $('#async-await-btn').click(function() {
+        clearResults(this);
+        withAsyncAwait();
+    });
+    
 });
 
 function toggleButtons() {
@@ -36,7 +41,6 @@ function toggleButtons() {
 
 function clearResults(element) {
     var items = $(element).siblings('ul').first().children('li');
-    console.log(items)
     $.each(items, function (i, value) {
         $(value).children('span').remove();
     });
@@ -134,5 +138,45 @@ function raceFunction(secondsToWait) {
     Promise.race([f1, f2])
     .then((val)=> {
         addValueToLisItem(withValArray[Number(val)], "Done");
+    });
+}
+async function withAsyncAwait(){
+    let asyncAwaitElementArray = $('.async-await li');
+    let timeout = 0;
+
+    var promises = [
+        //Function 1
+        new Promise((resolve,reject)=>{
+            setTimeout(resolve, 1000, 'Done 1');
+        }),
+        //Function 1
+        new Promise((resolve,reject)=>{
+            setTimeout(resolve, 2000, "Done 2");
+        }),
+        //Function 1
+        new Promise((resolve,reject)=>{
+            setTimeout(resolve, 3000, "Done 3");
+        }),
+        //Function 1
+        new Promise((resolve,reject)=>{
+            setTimeout(resolve, 4000, "Done 4");
+        }),
+        //Function 1
+        new Promise((resolve,reject)=>{
+            setTimeout(resolve, 5000, "Done 5");
+        })
+    ];
+
+    var values = await Promise.all(promises);
+    console.log(values);
+    values.forEach((val, index)=>{        
+        addValueToLisItem(asyncAwaitElementArray[index], val);
+    });
+
+}
+
+function sleep(timeout, retval){
+    return new Promise((resolve,reject)=>{
+        setTimeout(resolve, timeout, retval + " " + (timeout / 1000));
     });
 }
