@@ -7,7 +7,7 @@ Five examples include:
 * Using `promise.all()`
 * Using async/await
 
- ### All examples of functions are verbose with the intention of being easie to understand.
+ ### All examples are verbose with the intention of being easy to understand.
  
  ## Install
  Clone the repository then run `npm install`.
