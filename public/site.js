@@ -21,6 +21,7 @@ $(document).ready(function () {
         raceFunction(secondsToWait);
     });
     $('#async-await-btn').click(function() {
+        toggleButtons();
         clearResults(this);
         withAsyncAwait();
     });
