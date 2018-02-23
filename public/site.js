@@ -171,6 +171,7 @@ async function withAsyncAwait(){
     ];
 
     var values = await Promise.all(promises);
+    
     values.forEach((val, index)=>{        
         addValueToLisItem(asyncAwaitElementArray[index], val);
         if(index === 4){
