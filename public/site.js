@@ -16,6 +16,7 @@ $(document).ready(function () {
         withAllFunctions();
     });
     $('#race-btn').click(function() {
+        toggleButtons();
         clearResults(this);
         var secondsToWait = $('.inner input').val();
         raceFunction(secondsToWait);
@@ -139,6 +140,7 @@ function raceFunction(secondsToWait) {
     Promise.race([f1, f2])
     .then((val)=> {
         addValueToLisItem(withValArray[Number(val)], "Done");
+        toggleButtons();
     });
 }
 async function withAsyncAwait(){
@@ -172,6 +174,9 @@ async function withAsyncAwait(){
     console.log(values);
     values.forEach((val, index)=>{        
         addValueToLisItem(asyncAwaitElementArray[index], val);
+        if(index === 4){
+            toggleButtons();
+        }
     });
 
 }
